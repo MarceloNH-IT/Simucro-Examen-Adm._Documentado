@@ -141,7 +141,12 @@ Con el objetivo de garantizar la correcta ubicación de los recursos y asegurar 
 
 ---
 
-![Configuración del Adaptador de Red Puente](MarceloNoc.jpg)
+st.markdown(
+    '<img src="MarceloNoc.jpg" alt="Configuración del Adaptador de Red Puente" width="400">', 
+    unsafe_allow_html=True
+)
+
+
 ## 🤝 Conclusión y Contacto
 
 ![GitHub Stats](https://github-readme-stats.anuraghazra1.vercel.app/api?username=MarceloNH-IT&show_icons=true&theme=radical)
