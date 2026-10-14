@@ -126,7 +126,7 @@ Con el objetivo de garantizar la correcta ubicación de los recursos y asegurar 
 
 > **🔗 Acceso Directo a la Aplicación en Vivo:** 
 > Puede probar y evaluar el funcionamiento del simulador en línea ingresando a través del siguiente enlace oficial:
-> 👉 **[Simulador de Examen - Consorcio CABA](https://simulador-examen-consorcio-idozsxwpuwmivvsb39p6tm.streamlit.app)**
+> 👉 **[Simulador de Examen - Consorcio CABA](https://simulador-examen-consorcio-idozsxwpuwmivvsb39p6tm.streamlit.app)** 🫴
 ---
 ![Proyecto Final](ProyectoFinal.jpg)
 
