@@ -128,7 +128,7 @@ Con el objetivo de garantizar la correcta ubicación de los recursos y asegurar 
 > Puede probar y evaluar el funcionamiento del simulador en línea ingresando a través del siguiente enlace oficial:
 > 👉 **[Simulador de Examen - Consorcio CABA](https://simulador-examen-consorcio-idozsxwpuwmivvsb39p6tm.streamlit.app)**
 ---
-
+![Generación del exe](Esplicacion%200.6%20Py.jpg)
 
 
 ## 🚀 Tecnologías y Herramientas Utilizadas
