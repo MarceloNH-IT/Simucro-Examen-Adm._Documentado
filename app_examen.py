@@ -389,7 +389,57 @@ Q = [
     "Todos los edificios que posean al menos un amenity (ejemplo: pileta) son considerados automáticamente de 1ra categoría.",
     "Lo define la asamblea anualmente por mayoría simple, pudiendo bajar la categoría si deciden no utilizar la pileta en invierno."], 1,
     "El Art. 6 del CCT 589/10 enumera los servicios centrales: agua caliente, calefacción, compactador o incinerador de residuos, gas envasado central, desagote de cámara séptica, ablandador de agua, natatorio, gimnasio, saunas, cancha de paddle, tenis o squash, salón de usos múltiples, solarium y lavandería. Según cuántos existan: 1ra categoría, tres o más; 2da, dos; 3ra, uno; 4ta, ninguno. Ni la vigilancia ni el jardín figuran en esa lista (el jardín da lugar a un plus, Art. 15 inc. 5). Y la supresión de un servicio central no baja la categoría del trabajador."),
+(4, "¿Está el encargado del edificio obligado a realizar la cobranza de expensas o a recibir y firmar notificaciones judiciales dirigidas a los consorcistas?", [
+    "Sí, la cobranza de expensas es una de sus tareas obligatorias cuando el administrador no tiene oficina en el edificio.",
+    "No: según el CCT 589/10 no está obligado a cobrar expensas ni a recibir o firmar notificaciones administrativas o judiciales destinadas a los consorcistas, salvo autorización expresa del destinatario.",
+    "Sí, pero solo si cobra un plus por función adicional.",
+    "No, salvo que el Consejo de Propietarios se lo ordene por escrito."], 1,
+    "El Art. 24 del CCT 589/10 enumera las tareas no obligatorias del personal: no debe realizar la cobranza de expensas comunes (inc. 1) ni recibir o firmar notificaciones administrativas o judiciales o correspondencia certificada destinada a los consorcistas, salvo expresa autorización del destinatario (inc. 5)."),
+(4, "¿De quién recibe órdenes el encargado y cómo deben instrumentarse?", [
+    "De cualquier miembro del Consejo de Propietarios, de forma verbal.",
+    "Directa y únicamente del administrador, con exclusión de cualquier otro miembro del consorcio; las órdenes se fijan en un Libro de Órdenes rubricado.",
+    "De cada propietario, según el piso donde se necesite el servicio.",
+    "Del presidente del Consejo, que las comunica por mensaje al grupo del edificio."], 1,
+    "El Art. 22 del CCT 589/10 establece que el encargado recibe las órdenes directa y únicamente del administrador, con exclusión de cualquier otra autoridad o miembro del consorcio. Según el Art. 23 inc. 13, las órdenes se fijan en un Libro de Órdenes rubricado por la autoridad competente, que permanece en poder del administrador; el encargado se notifica recibiendo copia y puede hacer sus descargos."),
+(2, "Un administrador fue designado en el Reglamento de Propiedad Horizontal por el desarrollador. ¿Qué ocurre con su cargo y cuándo debe realizarse la primera asamblea?", [
+    "Continúa de forma automática por tres años, sin necesidad de ratificación.",
+    "Cesa en la primera asamblea si no es ratificado por ella, que debe realizarse dentro de los 90 días de cumplidos 2 años del otorgamiento del reglamento o de estar ocupado el 50% de las unidades funcionales, lo que ocurra primero.",
+    "Cesa a los 30 días de inscripto el reglamento y el desarrollador designa a otro.",
+    "Solo puede ser removido por orden judicial."], 1,
+    "El Art. 13 de la Ley 941 (texto según Ley 5.932), en línea con el CCyC, dispone que el administrador designado en el reglamento cesa en la primera asamblea si no es ratificado. Esa asamblea debe realizarse dentro de los 90 días de cumplidos 2 años del otorgamiento del reglamento o desde que esté ocupado el 50% de las unidades funcionales, lo que ocurra primero."),
+(4, "¿Hasta qué día de cada mes debe depositar el consorcio los aportes a la Caja de Protección a la Familia del CCT 589/10, y qué ocurre si se atrasa?", [
+    "Hasta el día 5; no hay consecuencia mientras se pague antes de fin de mes.",
+    "Hasta el día 15 de cada mes; la mora es automática, sin necesidad de interpelación judicial ni privada.",
+    "Hasta el último día hábil del mes, y solo hay mora luego de una intimación de 10 días.",
+    "Una vez por año, junto con el aguinaldo."], 1,
+    "El Art. 19 inc. 3 del CCT 589/10 exige depositar los importes mensualmente hasta el día 15, y la mora se produce en forma automática. El consorcio actúa como agente de retención (Art. 26) y los aportes de la Caja son 1,5% a cargo del empleador y 1% a cargo del trabajador (Art. 19 inc. 1)."),
+(2, "Entre las obligaciones del administrador del Art. 9 de la Ley 941 figura atender a la conservación de las partes comunes. ¿Qué comprende esa obligación?", [
+    "Solo la limpieza diaria de pasillos y hall de entrada.",
+    "Realizar las diligencias pertinentes para cumplir la normativa vigente, resguardando el mantenimiento edilicio, las instalaciones, el sistema de protección contra incendio, la higiene y seguridad y el control de plagas.",
+    "Únicamente pintar el frente del edificio cada dos años.",
+    "Nada: el mantenimiento es responsabilidad exclusiva de cada propietario."], 1,
+    "El Art. 9 de la Ley 941 obliga al administrador a atender la conservación de las partes comunes y realizar las diligencias pertinentes para el cumplimiento de la normativa vigente, resguardando el mantenimiento edilicio e infraestructura, instalaciones, sistema de protección contra incendio, higiene y seguridad y control de plagas."),
 ]
+
+# Valor de cada pregunta, en el mismo orden que Q: 1 = crítica / práctica diaria,
+# 0.5 = compleja, 0.25 = muy técnica o de detalle.
+PESO = [
+    # Área 1 (0-19)
+    1, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 0.25, 0.25,
+    # Área 2 (20-39)
+    0.5, 1, 0.5, 0.25, 1, 1, 0.25, 0.5, 0.5, 0.5, 0.5, 0.25, 0.5, 1, 0.5, 0.5, 0.5, 0.25, 0.25, 0.25,
+    # Área 3 (40-49)
+    1, 1, 0.5, 0.25, 0.25, 1, 0.5, 0.5, 0.25, 0.5,
+    # Preguntas especiales (50-58)
+    0.5, 1, 1, 1, 0.25, 0.5, 0.5, 0.5, 0.5,
+    # 5 preguntas de práctica (59-63)
+    1, 1, 0.5, 0.25, 1,
+]
+assert len(PESO) == len(Q), (len(PESO), len(Q))
+
+def pt(x):
+    """Formatea puntos: 1 -> '1', 0.5 -> '0,5', 0.25 -> '0,25'."""
+    return f"{x:g}".replace(".", ",")
 
 S = st.session_state
 
@@ -435,15 +485,15 @@ def reservar(nombre):
     return True
 
 # ---------------------------------------------------------------- estado
-# Las 9 preguntas especiales (las últimas del banco) salen SIEMPRE.
-# El resto se sortea por área hasta completar 30 preguntas.
-N_ESPECIALES = 9
-ESPECIALES = list(range(len(Q) - N_ESPECIALES, len(Q)))
-CUPO_BASE = {1: 7, 2: 7, 3: 7}        # 21 sorteadas + 9 especiales = 30
+# Las últimas 14 preguntas del banco (9 especiales + 5 de práctica) salen SIEMPRE.
+# El resto se sortea por área hasta completar 35 preguntas.
+N_FIJAS = 14
+ESPECIALES = list(range(len(Q) - N_FIJAS, len(Q)))
+CUPO_BASE = {1: 8, 2: 5, 3: 8}        # 21 sorteadas + 14 fijas = 35
 
 def orden_nuevo():
-    """Arma un examen de 30 preguntas en orden aleatorio (áreas mezcladas)."""
-    base = list(range(len(Q) - N_ESPECIALES))
+    """Arma un examen de 35 preguntas en orden aleatorio (áreas mezcladas)."""
+    base = list(range(len(Q) - N_FIJAS))
     elegidas = []
     for area, cupo in CUPO_BASE.items():
         pool = [n for n in base if Q[n][0] == area]
@@ -451,9 +501,6 @@ def orden_nuevo():
     o = ESPECIALES + elegidas
     random.shuffle(o)
     return o
-
-def minimo_aprobacion(total):
-    return math.ceil(total * APROBAR / 100)
 
 def nuevo(order, conservar_usuario=True):
     usuario = S.get("usuario", "") if conservar_usuario else ""
@@ -474,22 +521,27 @@ def comenzar(nombre):
     S.stage = "examen"
     return True
 
-def resumen():
+def evaluar():
+    """Devuelve (total, correctas, puntos, puntos_total, nota, aprobado)."""
     total = len(S.order)
     ok = [n for n in S.order if S.ans.get(n) == Q[n][3]]
-    return total, ok
+    obt = sum(PESO[n] for n in ok)
+    ptot = sum(PESO[n] for n in S.order)
+    raw = obt / ptot * 10
+    nota = max(1.0, math.floor(raw * 10 + 1e-9) / 10)
+    aprobado = raw >= APROBAR / 10 - 1e-9
+    return total, ok, obt, ptot, nota, aprobado
 
 def terminar():
     S.used = min(DURACION, DURACION - (S.deadline - time.time()))
     S.stage, S.confirm, S.fx = "fin", False, True
     if not S.saved:
-        total, ok = resumen()
-        pct = len(ok) / total * 100
+        total, ok, obt, ptot, nota, aprobado = evaluar()
         areas = {}
         for n in S.order:
             a = areas.setdefault(str(Q[n][0]), [0, 0]); a[1] += 1; a[0] += n in ok
         rec = dict(nombre=S.usuario, fecha=datetime.now().strftime("%Y-%m-%d %H:%M"), correctas=len(ok), total=total,
-                   nota=max(1.0, round(pct / 10, 1)), aprobado=len(ok) >= minimo_aprobacion(total),
+                   puntos=obt, puntos_total=ptot, nota=nota, aprobado=aprobado,
                    segundos=int(S.used), areas=areas)
         registrar(rec)
         S.mis.append(rec)
@@ -510,10 +562,9 @@ def reloj():
 
 def inicio():
     total = len(S.order)
-    minimo = minimo_aprobacion(total)
-    st.write(f"""**Formato (Disposición 3395/DGDYPC/2026):** evaluación escrita, individual y de **opción múltiple**, calificada de 1 a 10.  
+    st.write(f"""**Formato (Disposición 3395/DGDYPC/2026):** evaluación escrita, individual y de **opción múltiple**, calificada de 1 a 10. Se aprueba con **6 o más**.  
 **Este simulacro:** **{total} preguntas** · **{DURACION // 60} minutos**. La cantidad y el tiempo son una referencia: la Disposición no los fija.  
-**Aprobación:** nota mínima **6** (al menos **{minimo} de {total}** correctas). Las incorrectas o en blanco no restan.  
+**Puntaje:** cada pregunta tiene un valor. **1 punto** las críticas y de práctica diaria, **0,5** las complejas y **0,25** las muy técnicas o de detalle. La nota es el puntaje obtenido sobre el puntaje total, llevado a 10. Las incorrectas o en blanco no restan.  
 **Como en el examen en papel:** podés ir y volver entre preguntas, cambiar tus respuestas y dejar en blanco. **No se muestra si acertaste hasta que entregás el examen.**  
 Cada intento sortea preguntas distintas y mezcla el orden de las opciones. Podés repetirlo todas las veces que quieras.""")
     nombre = st.text_input("Tu nombre o apodo (para registrar tu intento)", value=S.usuario, max_chars=30)
@@ -546,7 +597,7 @@ def examen():
     perm = S.perm[n]
     contestadas = sum(1 for m in S.order if S.ans.get(m) is not None)
     st.progress(contestadas / total, text=f"Respondidas: {contestadas} de {total}")
-    st.caption(f"{S.usuario} · Pregunta {S.pos + 1} de {total}")
+    st.caption(f"{S.usuario} · Pregunta {S.pos + 1} de {total} · Vale {pt(PESO[n])} {'punto' if PESO[n] == 1 else 'puntos'}")
 
     ir = st.selectbox("Ir a la pregunta", range(total), index=S.pos, key=f"nav_{S.run}_{S.pos}",
                       format_func=lambda i: f"Pregunta {i + 1}  {'✅' if S.ans.get(S.order[i]) is not None else '⬜'}")
@@ -574,13 +625,12 @@ def examen():
         S.confirm = True; st.rerun()
 
 def resultados():
-    total, ok = resumen()
+    total, ok, obt, ptot, nota, aprobado = evaluar()
     en_blanco = [n for n in S.order if S.ans.get(n, None) is None]
-    mal = [n for n in S.order if n not in ok]
-    pct = len(ok) / total * 100
-    nota = max(1.0, round(pct / 10, 1))
-    minimo = minimo_aprobacion(total)
-    aprobado = len(ok) >= minimo
+    # Errores más graves primero (las preguntas de 1 punto)
+    mal = sorted([n for n in S.order if n not in ok], key=lambda n: -PESO[n])
+    pct = obt / ptot * 100
+    minimo = ptot * APROBAR / 100
 
     # Aviso emergente (una sola vez por intento)
     if aprobado and not S.get(f"toast_{S.run}"):
@@ -591,15 +641,15 @@ def resultados():
     m, s = divmod(int(S.used), 60)
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("Nota (1 a 10)", f"{nota:.1f}")
-    c2.metric("Porcentaje", f"{pct:.0f}%")
+    c2.metric("Puntaje", f"{pt(obt)} / {pt(ptot)}")
     c3.metric("Correctas", f"{len(ok)} / {total}")
     c4.metric("Tiempo", f"{m:02d}:{s:02d}")
-    st.progress(pct / 100, text=f"{pct:.1f}% de aciertos · mínimo para aprobar: {APROBAR}%")
+    st.progress(min(pct / 100, 1.0), text=f"{pct:.1f}% del puntaje · mínimo para aprobar: {APROBAR}% ({pt(round(minimo, 2))} de {pt(ptot)} puntos)")
 
     if aprobado:
         st.success("🥂 ¡APROBADO! Alcanzaste el mínimo de 6 puntos. ¡Brindemos!")
     else:
-        st.error(f"NO APROBADO. Necesitabas {minimo} correctas y lograste {len(ok)}. Te faltaron {minimo - len(ok)}. ¡A repetir!")
+        st.error(f"NO APROBADO. Necesitabas {pt(round(minimo, 2))} puntos y lograste {pt(obt)}. Te faltaron {pt(round(minimo - obt, 2))}. ¡A repetir!")
 
     if en_blanco:
         st.caption(f"Preguntas en blanco: {len(en_blanco)} (no restan puntos).")
@@ -609,22 +659,26 @@ def resultados():
         idx = [n for n in S.order if Q[n][0] == k]
         if idx:
             b = sum(S.ans.get(n) == Q[n][3] for n in idx)
-            filas.append({"Área": nombre, "Correctas": b, "Total": len(idx), "Dominio": b / len(idx) * 100})
+            pts = sum(PESO[n] for n in idx if S.ans.get(n) == Q[n][3])
+            tot = sum(PESO[n] for n in idx)
+            filas.append({"Área": nombre, "Correctas": b, "Total": len(idx),
+                          "Puntos": f"{pt(pts)} / {pt(tot)}", "Dominio": pts / tot * 100})
     df = pd.DataFrame(filas).sort_values("Dominio")
     st.subheader("Rendimiento por área")
     st.dataframe(df, hide_index=True, column_config={
         "Dominio": st.column_config.ProgressColumn("Dominio", min_value=0, max_value=100, format="%d%%")})
     peor = df.iloc[0]
     if peor["Dominio"] < 100:
-        st.warning(f"Donde más te costó: **{peor['Área']}** ({peor['Dominio']:.0f}%). Es lo que más te conviene practicar.")
+        st.warning(f"Donde más puntos perdiste: **{peor['Área']}** ({peor['Dominio']:.0f}%). Es lo que más te conviene practicar.")
     else:
         st.success("Dominio del 100% en todas las áreas.")
 
     if mal:
         st.subheader("Para repasar")
+        st.caption("Ordenadas por valor: primero las que más puntos te hicieron perder.")
         for n in mal:
             area, q, opts, a, expl = Q[n]
-            with st.expander(f"[{AREAS[area]}] {q}"):
+            with st.expander(f"[Vale {pt(PESO[n])} · {AREAS[area]}] {q}"):
                 el = S.ans.get(n)
                 st.write("❌ Tu respuesta: " + (opts[el] if el is not None else "en blanco"))
                 st.write(f"✅ Correcta: {opts[a]}")
@@ -633,6 +687,7 @@ def resultados():
     if len(S.mis) > 1:
         st.subheader("Tus intentos de esta sesión")
         st.dataframe(pd.DataFrame([{"Intento": i + 1, "Fecha": r["fecha"], "Correctas": f"{r['correctas']}/{r['total']}",
+                                    "Puntos": f"{pt(r['puntos'])}/{pt(r['puntos_total'])}" if "puntos" in r else "-",
                                     "Nota": r["nota"], "Resultado": "Aprobado" if r["aprobado"] else "Desaprobado"}
                                    for i, r in enumerate(S.mis)]), hide_index=True)
     b1, b2 = st.columns(2)
