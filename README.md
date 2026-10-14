@@ -141,7 +141,7 @@ Con el objetivo de garantizar la correcta ubicación de los recursos y asegurar 
 
 ---
 
-![Configuración del Adaptador de Red Puente](FotoNOC.jpg)
+![Configuración del Adaptador de Red Puente](MarceloNoc.jpg)
 ## 🤝 Conclusión y Contacto
 
 ![GitHub Stats](https://github-readme-stats.anuraghazra1.vercel.app/api?username=MarceloNH-IT&show_icons=true&theme=radical)
