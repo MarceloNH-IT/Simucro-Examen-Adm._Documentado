@@ -16,9 +16,9 @@ def aplicar_diseno_personalizado():
     st.markdown(
         """
         <style>
-        /* 1. Fondo urbano con tu diseño personalizado de GitHub */
+        /* 1. Fondo urbano (imagen de edificios sostenibles) */
         .stApp {
-            background-image: url("https://raw.githubusercontent.com/MarceloNH-IT/Examen_Adm_Consorcio_Final/main/Edificio_dise%C3%B1o.jpg");
+            background-image: url("https://planradar-website.s3.amazonaws.com/production/uploads/2022/09/Edificios-Sostenibles-iStock-13656788811-1024x593.jpg");
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
@@ -269,7 +269,7 @@ st.set_page_config(page_title="Simulacro RPA - Administrador de Consorcios", pag
 # 3. EJECUTAMOS LA FUNCIÓN DE DISEÑO
 aplicar_diseno_personalizado()
 
-DURACION = 120 * 60         # 120 minutos
+DURACION = 60 * 60          # 60 minutos (la Disposición 3395/2026 no fija la duración; ajustalo si sabés el tiempo real)
 APROBAR = 60                # % minimo (nota 6)
 AREAS = {
     1: "Código Civil y Comercial",
@@ -435,9 +435,20 @@ def reservar(nombre):
     return True
 
 # ---------------------------------------------------------------- estado
+# Las 9 preguntas especiales (las últimas del banco) salen SIEMPRE.
+# El resto se sortea por área hasta completar 30 preguntas.
+N_ESPECIALES = 9
+ESPECIALES = list(range(len(Q) - N_ESPECIALES, len(Q)))
+CUPO_BASE = {1: 7, 2: 7, 3: 7}        # 21 sorteadas + 9 especiales = 30
+
 def orden_nuevo():
-    """Orden aleatorio de las preguntas (como en un examen real, las áreas van mezcladas)."""
-    o = list(range(len(Q)))
+    """Arma un examen de 30 preguntas en orden aleatorio (áreas mezcladas)."""
+    base = list(range(len(Q) - N_ESPECIALES))
+    elegidas = []
+    for area, cupo in CUPO_BASE.items():
+        pool = [n for n in base if Q[n][0] == area]
+        elegidas += random.sample(pool, min(cupo, len(pool)))
+    o = ESPECIALES + elegidas
     random.shuffle(o)
     return o
 
@@ -500,11 +511,11 @@ def reloj():
 def inicio():
     total = len(S.order)
     minimo = minimo_aprobacion(total)
-    st.write(f"""**Formato:** opción múltiple, una sola respuesta correcta · **{total} preguntas** · **{DURACION // 60} minutos**  
-**Aprobación:** nota mínima 6 (al menos {minimo} de {total} correctas). Las incorrectas o en blanco no restan.  
-**Feedback:** después de cada respuesta ves si acertaste y cuál era la correcta.  
-Las preguntas aparecen mezcladas y las opciones cambian de orden en cada intento.  
-Podés repetir el simulacro todas las veces que quieras.""")
+    st.write(f"""**Formato (Disposición 3395/DGDYPC/2026):** evaluación escrita, individual y de **opción múltiple**, calificada de 1 a 10.  
+**Este simulacro:** **{total} preguntas** · **{DURACION // 60} minutos**. La cantidad y el tiempo son una referencia: la Disposición no los fija.  
+**Aprobación:** nota mínima **6** (al menos **{minimo} de {total}** correctas). Las incorrectas o en blanco no restan.  
+**Como en el examen en papel:** podés ir y volver entre preguntas, cambiar tus respuestas y dejar en blanco. **No se muestra si acertaste hasta que entregás el examen.**  
+Cada intento sortea preguntas distintas y mezcla el orden de las opciones. Podés repetirlo todas las veces que quieras.""")
     nombre = st.text_input("Tu nombre o apodo (para registrar tu intento)", value=S.usuario, max_chars=30)
     if st.button("Comenzar examen", type="primary", disabled=len(normalizar(nombre)) < 2):
         if comenzar(nombre):
@@ -517,45 +528,50 @@ def examen():
         terminar(); st.rerun()
     reloj()
     total = len(S.order)
+
+    # Confirmación de entrega
+    if S.confirm:
+        sin = sum(1 for n in S.order if S.ans.get(n) is None)
+        st.warning(f"Vas a entregar el examen. Tenés **{sin}** pregunta(s) sin responder. "
+                   "Una vez entregado no podés cambiar tus respuestas.")
+        c1, c2 = st.columns(2)
+        if c1.button("Sí, entregar el examen", type="primary"):
+            terminar(); st.rerun()
+        if c2.button("Volver al examen"):
+            S.confirm = False; st.rerun()
+        return
+
     n = S.order[S.pos]
     area, q, opts, a, expl = Q[n]
     perm = S.perm[n]
-    st.progress(S.pos / total)
-    st.caption(f"{S.usuario} · Pregunta {S.pos + 1} de {total} · {AREAS[area]}")
+    contestadas = sum(1 for m in S.order if S.ans.get(m) is not None)
+    st.progress(contestadas / total, text=f"Respondidas: {contestadas} de {total}")
+    st.caption(f"{S.usuario} · Pregunta {S.pos + 1} de {total}")
+
+    ir = st.selectbox("Ir a la pregunta", range(total), index=S.pos, key=f"nav_{S.run}_{S.pos}",
+                      format_func=lambda i: f"Pregunta {i + 1}  {'✅' if S.ans.get(S.order[i]) is not None else '⬜'}")
+    if ir != S.pos:
+        S.pos = ir; st.rerun()
+
     st.subheader(q)
-    if n not in S.ans:
-        sel = st.radio("Opciones", range(4), index=None, key=f"q{S.run}_{n}",
-                       format_func=lambda i: f"{'ABCD'[i]}) {opts[perm[i]]}", label_visibility="collapsed")
-        c1, c2 = st.columns(2)
-        if c1.button("Responder", type="primary", disabled=sel is None):
-            S.ans[n] = perm[sel]; st.rerun()
-        if c2.button("Omitir (queda en blanco)"):
-            S.ans[n] = None; st.rerun()
-        return
-    elegida = S.ans[n]
-    for i, oi in enumerate(perm):
-        txt = f"{'ABCD'[i]}) {opts[oi]}"
-        if oi == a:
-            st.markdown(f"✅ **{txt}**")
-        elif oi == elegida:
-            st.markdown(f"❌ ~~{txt}~~")
-        else:
-            st.markdown(f"◻️ {txt}")
-    letra = "ABCD"[perm.index(a)]
-    if elegida == a:
-        st.success(f"¡Correcto! La respuesta correcta es la {letra}.")
-    elif elegida is None:
-        st.warning(f"Pregunta en blanco. La respuesta correcta era la {letra}.")
-    else:
-        st.error(f"Incorrecta. La respuesta correcta es la {letra}) {opts[a]}")
-    st.info(expl)
-    ultima = S.pos + 1 >= total
-    if st.button("Ver resultados" if ultima else "Siguiente", type="primary"):
-        if ultima:
-            terminar()
-        else:
-            S.pos += 1
-        st.rerun()
+    key = f"q{S.run}_{n}"
+    guardada = S.ans.get(n)
+    idx = perm.index(guardada) if guardada is not None else None
+    sel = st.radio("Opciones", range(4), index=idx, key=key,
+                   format_func=lambda i: f"{'ABCD'[i]}) {opts[perm[i]]}", label_visibility="collapsed")
+    if sel is not None:
+        S.ans[n] = perm[sel]
+
+    c1, c2, c3 = st.columns(3)
+    if c1.button("◀ Anterior", disabled=S.pos == 0):
+        S.pos -= 1; st.rerun()
+    if c2.button("Borrar respuesta", disabled=S.ans.get(n) is None):
+        S.ans.pop(n, None); S.pop(key, None); st.rerun()
+    if c3.button("Siguiente ▶", disabled=S.pos + 1 >= total):
+        S.pos += 1; st.rerun()
+    st.divider()
+    if st.button("Finalizar y entregar el examen", type="primary"):
+        S.confirm = True; st.rerun()
 
 def resultados():
     total, ok = resumen()
