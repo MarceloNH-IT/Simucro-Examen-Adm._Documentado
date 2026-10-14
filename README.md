@@ -4,6 +4,8 @@ Este repositorio documenta el desarrollo y despliegue de mi primer proyecto inte
 
 A lo largo de este proyecto, evolucioné el software desde un script básico de consola hasta transformarlo en una aplicación web moderna y accesible mediante un enlace público.
 
+![Profile Views](https://visitor-badge.laobi.icu/badge?page_id=MarceloNH-IT.MarceloNH-IT&style=flat)
+
 
 :smile: :clap: **Adjuntos las imágenes por si les sirve el proceso de creación de cada paso para su proyectos** :smile: :clap:
 
@@ -145,7 +147,7 @@ Con el objetivo de garantizar la correcta ubicación de los recursos y asegurar 
 
 ![Streak Stats](https://github-readme-streak-stats.herokuapp.com/?user=MarceloNH-IT&theme=radical)
 
-![Profile Views](https://komarev.com/ghpvc/?username=MarceloNH-IT&color=blue&style=flat)
+![Profile Views](https://visitor-badge.laobi.icu/badge?page_id=MarceloNH-IT.MarceloNH-IT&style=flat)
 
 * **💼 LinkedIn**: [Horacio Marcelo Nuñez](https://linkedin.com) 
 * **📬 Correo Electrónico**: [marcelonh86@gmail.com](marcelonh86@gmail.com)
