@@ -45,6 +45,9 @@ Muchas gracias por ver mi portafolio. Les envio un saludo grande.
 **todo funcionando**
 ![Aplicación funcionando en el navegador](Funciona.jpg)
 
+![Diseño](Diseño.jpg)
+
+
 ---
 
 ## 🛠️ Fase 1: Desarrollo de la Lógica y Script en Consola (CLI)
