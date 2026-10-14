@@ -140,12 +140,10 @@ Con el objetivo de garantizar la correcta ubicación de los recursos y asegurar 
 * **Entornos:** IDLE, CMD (Símbolo del sistema de Windows), Google Chrome
 
 ---
-
-st.markdown(
+😃:
     '<img src="MarceloNoc.jpg" alt="Configuración del Adaptador de Red Puente" width="400">', 
-    unsafe_allow_html=True
+    
 )
-
 
 ## 🤝 Conclusión y Contacto
 
